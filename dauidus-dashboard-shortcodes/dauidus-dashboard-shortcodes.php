@@ -238,6 +238,16 @@ function pelican_list_media() {
 					$content .= '<span><a class="edit_page_link" href="' . get_edit_post_link( $ID ) . '">edit</a></span>'; 
 			    	$content .= wp_get_attachment_image( $ID, 'medium' );
 			    $content .= '</li>';
+
+			    $ID = $attachment->ID; 
+				$alt = get_post_meta( $ID, '_wp_attachment_image_alt', true );
+				$content .= '<li class="media-' . $ID . '">';
+					if (!( $alt == '' )) {
+						$content .= '<div class="alt"></div>';
+					}
+					$content .= '<span><a class="edit_page_link" href="' . get_edit_post_link( $ID ) . '">edit</a></span>'; 
+			    	$content .= wp_get_attachment_image( $ID, 'medium' );
+			    $content .= '</li>';
 			}
 
 		$content .= '</ul>';
