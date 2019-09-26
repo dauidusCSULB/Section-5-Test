@@ -138,7 +138,7 @@ function pelican_list_posts() {
 	    	$x++;
 	    }
 
-	    $content .= '<h2>Posts <span>(';
+	    $content .= '<h2>Post <span>(';
 	    if ($x < '10') {
 	    	$content .= 'showing all ' . $x;
 	    } else {
@@ -194,7 +194,7 @@ function pelican_list_media() {
 
 		$media = get_posts( array(
 		    'post_type' => 'attachment',
-		    'posts_per_page' => 10000,
+		    'posts_per_page' => 1000,
 		    'post_status' => null
 		) );
 		$x = 0;
@@ -254,7 +254,7 @@ function pelican_list_menu() {
 	$url = get_bloginfo('url');
 	$content = '<div class="list_nav">';
 		$locations = get_nav_menu_locations();
-		$menu = wp_get_nav_menu_object( $locations[ 'primary' ] );
+		$menu = wp_get_nav_menu_object( $locations[ 'primary-menu' ] );
 		$menu_items = wp_get_nav_menu_items($menu->term_id);
 
 		$content .= '<h2>Main Navigation Menu</h2> <br><span class="small_text">Menu Name: ' . $menu->name . '</span> <a class="edit_this_link" href="' . $url . '/wp-admin/nav-menus.php?action=edit&menu=' . $menu->term_id . '">manage this menu</a>';
