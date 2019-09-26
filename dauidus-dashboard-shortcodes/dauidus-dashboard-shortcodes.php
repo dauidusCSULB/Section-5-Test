@@ -225,12 +225,12 @@ function pelican_list_media() {
 			$x = 0;
 			foreach ( $attachments as $attachment ) {
 				$x++;
-		    	if ($x > '20') {
+		    	if ($x > '50') {
 		    		break;
 		    	}
 
 				$ID = $attachment->ID; 
-				$alt = get_post_meta( $ID, '_wp_attachment_image_alt', true );
+				$alt = get_post_meta( $ID, '_wp_attachment_image_alt', false );
 				$content .= '<li class="media-' . $ID . '">';
 					if (!( $alt == '' )) {
 						$content .= '<div class="alt"></div>';
